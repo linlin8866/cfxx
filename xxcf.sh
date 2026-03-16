@@ -3068,7 +3068,7 @@ vmess://$(echo -n "auto:${UUID[17]}@${CDN[17]}:80" | base64 -w0)?remarks=${NODE_
   if [ -n "$PORT_VLESS_WS" ]; then
      if [[ "${STATUS[1]}" =~ $(text 27)|$(text 28) ]] || [[ "$IS_ARGO" = 'is_argo' && "$NONINTERACTIVE_INSTALL" = 'noninteractive_install' ]]; then
 
-      # 批量生成 200+ 优选域名 VLESS 节点
+      # 批量生成 200+ 优选域名 VLESS 节点（适配你的 PREFERRED_DOMAINS 数组）
       for domain in "${PREFERRED_DOMAINS[@]}"; do
         local NEKOBOX_SUBSCRIBE+="
 ----------------------------
@@ -3083,7 +3083,7 @@ vless://${UUID[18]}@${domain}:443?security=tls&sni=${domain}&type=ws&path=/$VLES
     else
       WS_SERVER_IP_SHOW=${WS_SERVER_IP[18]} && TYPE_HOST_DOMAIN=$VLESS_HOST_DOMAIN && TYPE_PORT_WS=$PORT_VLESS_WS
 
-      # 批量生成 200+ 优选域名 VLESS 节点
+      # 批量生成 200+ 优选域名 VLESS 节点（适配你的 PREFERRED_DOMAINS 数组）
       for domain in "${PREFERRED_DOMAINS[@]}"; do
         local NEKOBOX_SUBSCRIBE+="
 ----------------------------
